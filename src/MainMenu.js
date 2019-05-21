@@ -1,6 +1,6 @@
 Memory.MainMenu = function (game) {
 	this.playButton = null;
-	this.musicStarted = false;
+	//this.musicStarted = false;
 };
 
 Memory.MainMenu.prototype = {
@@ -12,7 +12,7 @@ Memory.MainMenu.prototype = {
 		}
 		
 		this.add.sprite(0, 0, 'menuBackground');
-		this.playButton = this.add.button(250, 200, 'playButton', this.gotoGame, this);
+		this.playButton = this.add.button(250, 250, 'playButton', this.gotoGame, this);/*
 		var scoreButton = this.add.button(250, 310, 'scoreButton', this.gotoScores, this);
 		var aboutButton = this.add.button(250, 420, 'abtButton', this.gotoAbout, this);
 		
@@ -21,18 +21,18 @@ Memory.MainMenu.prototype = {
 			Memory.music.play();
 			this.musicStarted = true;
 		}
-		Memory.soundControl = this.add.button(940, 0, Memory.getPauseString(), Memory.toggleMusic);
+		Memory.soundControl = this.add.button(940, 0, Memory.getPauseString(), Memory.toggleMusic);*/
 	},
 	
 	gotoGame: function (pointer) {
 		this.state.start('GridSelect');
 	},
-	
+	/*
 	gotoAbout: function (pointer) {
 		this.state.start('About');
 	},
 	
 	gotoScores: function (pointer) {
 		this.state.start('Scores');
-	}
+	}*/
 };

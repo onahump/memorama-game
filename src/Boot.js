@@ -1,7 +1,7 @@
 var Memory = {
 	gridCols: 2,
 	gridRows: 2,
-	soundControl: null,
+	/*soundControl: null,
 	music: null,
 	toggleMusic: function () {
 		if (!Memory.music.paused) {
@@ -18,7 +18,7 @@ var Memory = {
 		} else {
 			return 'soundOn';
 		}
-	},
+	},*/
 	supportsStorage: function() {
 		try {
 			return 'localStorage' in window && window['localStorage'] !== null;
@@ -61,7 +61,7 @@ Memory.Boot = function (game) {
 
 Memory.Boot.prototype = {
     init: function () {
-        this.input.maxPointers = 1;
+        //this.input.maxPointers = 1;
         this.stage.disableVisibilityChange = false;
 
         /*if (!this.game.device.desktop) {

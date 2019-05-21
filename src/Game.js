@@ -1,5 +1,6 @@
 Memory.Game = function (game) {};
 
+
 var movesText = null;
 var box = null;
 var emitter = null;
@@ -43,24 +44,24 @@ Memory.Game.prototype = {
 
 		moves = 0;
 		tilesLeft = columns * rows;
-		
+
 		click = this.add.audio('click');
 		ding = this.add.audio('ding');
-		
+
 		var background = this.add.sprite(0, 0, 'gameBkgd');
 		movesText = this.add.text(215, 1, "0", {font: "54px Arial", fill: "#617edf", fontWeight: "bold"});
-		
-		Memory.soundControl = this.add.button(940, 0, Memory.getPauseString(), Memory.toggleMusic);
-		var quitButton = this.add.button(870, 10, 'quitButton', this.quitGame, this);
-		
+
+		//Memory.soundControl = this.add.button(940, 0, Memory.getPauseString(), Memory.toggleMusic);
+		var quitButton = this.add.button(910, 10, 'quitButton', this.quitGame, this);
+
 		this.createGrid();
 		this.assignCards();
-		
+
 		emitter = this.add.emitter(500, 100, 300);
 		emitter.makeParticles('confetti');
 		emitter.gravity = 200;
     },
-	
+
 	createGrid: function () {
 		for (var i = 0; i < rows; i++) {
 			for (var j = 0; j < columns; j++) {
@@ -71,7 +72,7 @@ Memory.Game.prototype = {
 			}
 		}
 	},
-		
+
 	assignCards: function() {
 		//  make an array to hold the possible values
 		for (var i = 0; i < numValues; i++) {
@@ -92,43 +93,42 @@ Memory.Game.prototype = {
 			cards[i].clickable = true;
 		}
 	},
-	
+
 	winGame: function() {
 		if (Memory.supportsStorage()) {
 			this.saveScore();
 		}
-		
+
 		box = this.add.sprite(500, 280, 'gameOverBox');
 		box.anchor.set(0.5, 0.5);
 		box.alpha = 0.9;
-		
+
 		var movesText = this.add.sprite(500, 60, 'movesText');
 		movesText.anchor.set(0.5, 0);
-		
-		var scoresText = this.add.sprite(500, 130, 'scoreText');
-		scoresText.anchor.set(0.5, 0);
-		
+
+		//var scoresText = this.add.sprite(500, 130, 'scoreText');
+		//scoresText.anchor.set(0.5, 0);
+
 		var txtMoves = this.add.text(590, 75, moves, {font: "54px Arial", fill: "#ffffff", fontWeight: "bold"});
-		var txtScore = this.add.text(580, 145, localStorage[Memory.findScoreText()], {font: "54px Arial", fill: "#ffffff", fontWeight: "bold"});
-		
-		var menuBtn = this.add.button(500, 240, 'gameOverMenu', function() {this.state.start('MainMenu')}, this);
+		//var txtScore = this.add.text(580, 145, localStorage[Memory.findScoreText()], {font: "54px Arial", fill: "#ffffff", fontWeight: "bold"});
+
+		var menuBtn = this.add.button(500, 200, 'gameOverMenu', function() {this.state.start('MainMenu')}, this);
 		menuBtn.anchor.set(0.5, 0);
-		var replayBtn = this.add.button(500, 330, 'gameOverReplay', function() {this.state.start('Game')}, this);
+		var replayBtn = this.add.button(500, 290, 'gameOverReplay', function() {this.state.start('Game')}, this);
 		replayBtn.anchor.set(0.5, 0);
-		var sizeBtn = this.add.button(500, 420, 'gameOverSize', function() {this.state.start('GridSelect')}, this);
+		/*var sizeBtn = this.add.button(500, 420, 'gameOverSize', function() {this.state.start('GridSelect')}, this);
 		sizeBtn.anchor.set(0.5, 0);
-		
 		this.world.bringToTop(emitter);
-		emitter.start(true, 4000, null, 100);
+		emitter.start(true, 4000, null, 100);*/
 	},
-	
+
 	quitGame: function() {
 		this.state.start('MainMenu');
 	},
-	
+
 	saveScore: function() {
 		var scoreString = Memory.findScoreText();
-		
+
 		if (localStorage[scoreString] == 0) {
 			localStorage[scoreString] = moves;
 		} else {
@@ -173,7 +173,7 @@ function checkClick(obj, x, index) {
 			lastClickedIndex = index;
 		}
 		movesText.text = moves;
-		
+
 		//  check if player won game
 		if (tilesLeft == 0) {
 			this.winGame();
