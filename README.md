@@ -1,2 +1,0 @@
-# Memorama
-Juego memorama
