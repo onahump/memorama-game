@@ -19,11 +19,7 @@ Memory.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 
 		this.load.image('playButton', 'assets/btn-play.png');
-		this.load.image('abtButton', 'assets/btn-about.png');
-		this.load.image('scoreButton', 'assets/btn-highscores.png');
-		this.load.image('backButton', 'assets/btn-back.png');
 		this.load.image('quitButton', 'assets/btn-quit.png');
-		this.load.image('clearButton', 'assets/btn-clearscores.png');
 
 		this.load.image('bkgd', 'assets/bkgd.png');
 		this.load.image('selectText', 'assets/text-sizeselect.png');
@@ -41,17 +37,14 @@ Memory.Preloader.prototype = {
 		this.load.image('gameOverReplay', 'assets/gameover-replay.png');
 		this.load.image('gameOverSize', 'assets/gameover-size.png');
 		this.load.image('movesText', 'assets/text-moves.png');
-		this.load.image('scoreText', 'assets/text-bestscore.png');
 
 		this.load.atlasJSONArray('sizeButtons', 'assets/size-buttons.png', 'assets/size-buttons.json');
 
-		this.load.image('soundOn', 'assets/speaker.png');
 		this.load.image('soundOff', 'assets/speaker-off.png');
 
 		this.load.image('gameBkgd', 'assets/bkgd-game.png');
 		this.load.image('card', 'assets/spr-card.png');
 		this.load.atlasJSONArray('cards', 'assets/cards/cards.png', 'assets/cards/cards.json');
-		this.load.image('confetti', 'assets/confetti.png');
 
 		this.load.audio('music', 'assets/sound/music.mp3');
 		this.load.audio('click', 'assets/sound/click.mp3');

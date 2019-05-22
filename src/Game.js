@@ -1,6 +1,5 @@
 Memory.Game = function (game) {};
 
-
 var movesText = null;
 var box = null;
 var emitter = null;
@@ -16,10 +15,10 @@ var cardSpacing;
 var leftMargin;
 var topMargin;
 
-var cards; //  contains actual card elements
-var cardValues; // an array with the value of each card twice
-var numValues; // the number of possible pictures/values for the cards
-var lastClickedIndex; // the index of the card that was last clicked
+var cards;
+var cardValues;
+var numValues;
+var lastClickedIndex;
 
 var moves;
 var tilesLeft;
@@ -49,7 +48,7 @@ Memory.Game.prototype = {
 		ding = this.add.audio('ding');
 
 		var background = this.add.sprite(0, 0, 'gameBkgd');
-		movesText = this.add.text(215, 1, "0", {font: "54px Arial", fill: "#617edf", fontWeight: "bold"});
+		movesText = this.add.text(225,6, "0", {font: "42px Arial", fill: "#ffffff", fontWeight: "bold"});
 
 		//Memory.soundControl = this.add.button(940, 0, Memory.getPauseString(), Memory.toggleMusic);
 		var quitButton = this.add.button(910, 10, 'quitButton', this.quitGame, this);
@@ -57,9 +56,6 @@ Memory.Game.prototype = {
 		this.createGrid();
 		this.assignCards();
 
-		emitter = this.add.emitter(500, 100, 300);
-		emitter.makeParticles('confetti');
-		emitter.gravity = 200;
     },
 
 	createGrid: function () {
@@ -88,7 +84,6 @@ Memory.Game.prototype = {
 			//console.log("cards[" + i + "] has the card " + cardValues[randNum]);
 			// remove that value from the array so it can't be used again
 			cardValues.splice(randNum, 1);
-			// add a listener for clicking on the card that passes the card's index in the array as an arg
 			cards[i].events.onInputDown.add(checkClick, this, 0, i);
 			cards[i].clickable = true;
 		}
@@ -106,20 +101,11 @@ Memory.Game.prototype = {
 		var movesText = this.add.sprite(500, 60, 'movesText');
 		movesText.anchor.set(0.5, 0);
 
-		//var scoresText = this.add.sprite(500, 130, 'scoreText');
-		//scoresText.anchor.set(0.5, 0);
-
 		var txtMoves = this.add.text(590, 75, moves, {font: "54px Arial", fill: "#ffffff", fontWeight: "bold"});
-		//var txtScore = this.add.text(580, 145, localStorage[Memory.findScoreText()], {font: "54px Arial", fill: "#ffffff", fontWeight: "bold"});
-
 		var menuBtn = this.add.button(500, 200, 'gameOverMenu', function() {this.state.start('MainMenu')}, this);
 		menuBtn.anchor.set(0.5, 0);
 		var replayBtn = this.add.button(500, 290, 'gameOverReplay', function() {this.state.start('Game')}, this);
 		replayBtn.anchor.set(0.5, 0);
-		/*var sizeBtn = this.add.button(500, 420, 'gameOverSize', function() {this.state.start('GridSelect')}, this);
-		sizeBtn.anchor.set(0.5, 0);
-		this.world.bringToTop(emitter);
-		emitter.start(true, 4000, null, 100);*/
 	},
 
 	quitGame: function() {
@@ -143,10 +129,8 @@ function checkClick(obj, x, index) {
 	if (c.clickable) {
 		var last = cards[lastClickedIndex];
 		c.loadTexture('cards', c.cardValue);
-		//console.log("clicked " + c.cardValue);
 
 		if (index == lastClickedIndex) {
-			//console.log("same card");
 		} else if (lastClickedIndex != -1 && c.cardValue == last.cardValue) {
 			// match
 			ding.play();
