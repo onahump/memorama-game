@@ -22,7 +22,7 @@ Memory.Preloader.prototype = {
 		this.load.image('quitButton', 'assets/btn-quit.png');
 
 		this.load.image('bkgd', 'assets/bkgd.png');
-		this.load.image('selectText', 'assets/text-sizeselect.png');
+		//this.load.image('selectText', 'assets/text-sizeselect.png');
 
 		this.load.image('scoreTitle', 'assets/text/text-highscores.png');
 		this.load.image('scoreTiny', 'assets/text/text-tiny.png');
@@ -35,12 +35,12 @@ Memory.Preloader.prototype = {
 		this.load.image('gameOverBox', 'assets/gameover.png');
 		this.load.image('gameOverMenu', 'assets/gameover-menu.png');
 		this.load.image('gameOverReplay', 'assets/gameover-replay.png');
-		this.load.image('gameOverSize', 'assets/gameover-size.png');
+		//this.load.image('gameOverSize', 'assets/gameover-size.png');
 		this.load.image('movesText', 'assets/text-moves.png');
 
-		this.load.atlasJSONArray('sizeButtons', 'assets/size-buttons.png', 'assets/size-buttons.json');
+		//this.load.atlasJSONArray('sizeButtons', 'assets/size-buttons.png', 'assets/size-buttons.json');
 
-		this.load.image('soundOff', 'assets/speaker-off.png');
+		//this.load.image('soundOff', 'assets/speaker-off.png');
 
 		this.load.image('gameBkgd', 'assets/bkgd-game.png');
 		this.load.image('card', 'assets/spr-card.png');
