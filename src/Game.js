@@ -25,6 +25,7 @@ var tilesLeft;
 
 Memory.Game.prototype = {
     create: function () {
+
 		rows = Memory.gridRows;
 		columns = Memory.gridCols;
 
@@ -47,7 +48,11 @@ Memory.Game.prototype = {
 		click = this.add.audio('click');
 		ding = this.add.audio('ding');
 
+
 		var background = this.add.sprite(0, 0, 'gameBkgd');
+		this.logo =  this.add.sprite(900, 500, 'logo');
+		this.logo.anchor.setTo(0.5);
+		this.logo.scale.setTo(0.065);
 		movesText = this.add.text(225,6, "0", {font: "42px Arial", fill: "#ffffff", fontWeight: "bold"});
 
 		//Memory.soundControl = this.add.button(940, 0, Memory.getPauseString(), Memory.toggleMusic);

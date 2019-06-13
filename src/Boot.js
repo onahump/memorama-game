@@ -27,15 +27,16 @@ Memory.Boot = function (game) {
 
 Memory.Boot.prototype = {
     init: function () {
-        this.stage.disableVisibilityChange = false;
+		this.stage.disableVisibilityChange = false;
     },
 
     preload: function () {
 		this.load.image('menuBackground', 'assets/bkgd-menu.png');
 		this.load.image('preloaderBar', 'assets/spr-loadbar.png');
+		this.load.image('logo', 'assets/logo.png');
     },
 
     create: function () {
-        this.state.start('Preloader');
+		this.state.start('Preloader');
     }
 };
